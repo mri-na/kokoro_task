@@ -1,24 +1,64 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Users テーブル
+| Column             | Type     | Options                   |
+| ------------------ | -------- | ------------------------- |
+| id                 | bigint   | null: false, primary key  |
+| nickname           | string   | null: false               |
+| email              | string   | null: false, unique: true |
+| password_digest    | string   | null: false               |
+| created_at         | datetime | null: false               |
+| update_at          | datetime | null: false               |
 
-Things you may want to cover:
+## Journals テーブル
+| Column             | Type     | Options                        |
+| ------------------ | -------- | ------------------------------ |
+| id                 | bigint   | null: false, primary key       |
+| user_id            | bigint   | null: false, foreign_key: true |
+| entry_date         | date     | null: false                    |
+| mood               | integer  |                                |
+| content            | text     | null: false                    |
+| created_at         | datetime | null: false                    |
+| updated_at         | datetime | null: false                    |
 
-* Ruby version
+## Tasks テーブル
+| Column             | Type     | Options                        |
+| ------------------ | -------- | ------------------------------ |
+| id                 | bigint   | null: false, primary key       |
+| user_id            | bigint   | null: false, foreign_key: true |
+| title              | string   | null: false                    |
+| description        | text     |                                |
+| due_date           | datetime |                                |
+| status             | integer  | default: 0                     |
+| priority           | integer  | default: 0                     |
+| journal_id         | bigint   | foreign_key: true              |
+| created_at         | datetime | null: false                    |
+| updated_at         | datetime | null: false                    |
 
-* System dependencies
+## Mood_Optionsテーブル
+| Column             | Type     | Options                        |
+| ------------------ | -------- | ------------------------------ |
+| id                 | bigint   | null: false, primary key       |
+| user_id            | bigint   | null: false, foreign_key: true |
+| label              | string   | null: false                    |
+| color              | string   | null: false                    |
+| created_at         | datetime | null: false                    |
+| updated_at         | datetime | null: false                    |
 
-* Configuration
+## Tags テーブル
+| Column             | Type     | Options                        |
+| ------------------ | -------- | ------------------------------ |
+| id                 | bigint   | null: false, primary key       |
+| name               | string   | null: false, unique: true      |
+| user_id            | bigint   | null: false, foreign_key: true |
+| created_at         | datetime | null: false                    |
+| updated_at         | datetime | null: false                    |
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Task_Tags テーブル （中間テーブル）
+| Column             | Type     | Options                        |
+| ------------------ | -------- | ------------------------------ |
+| id                 | bigint   | null: false, primary key       |
+| task_id            | bigint   | null: false, foreign_key: true |
+| tag_id             | bigint   | null: false, foreign_key: true |
+| created_at         | datetime | null: false                    |
+| updated_at         | datetime | null: false                    |
