@@ -16,7 +16,7 @@
 | id                 | bigint   | null: false, primary key       |
 | user_id            | bigint   | null: false, foreign_key: true |
 | entry_date         | date     | null: false                    |
-| mood               | integer  |                                |
+| mood               | string   | null: false                    |
 | content            | text     | null: false                    |
 | created_at         | datetime | null: false                    |
 | updated_at         | datetime | null: false                    |
@@ -31,7 +31,15 @@
 | due_date           | datetime |                                |
 | status             | integer  | default: 0                     |
 | priority           | integer  | default: 0                     |
-| journal_id         | bigint   | foreign_key: true              |
+| created_at         | datetime | null: false                    |
+| updated_at         | datetime | null: false                    |
+
+## Journals_Tasks テーブル
+| Column             | Type     | Options                        |
+| ------------------ | -------- | ------------------------------ |
+| id                 | bigint   | null: false, primary key       |
+| journal_id         | bigint   | null: false, foreign_key: true |
+| task_id            | bigint   | null: false, foreign_key: true |
 | created_at         | datetime | null: false                    |
 | updated_at         | datetime | null: false                    |
 
@@ -39,9 +47,9 @@
 | Column             | Type     | Options                        |
 | ------------------ | -------- | ------------------------------ |
 | id                 | bigint   | null: false, primary key       |
-| user_id            | bigint   | null: false, foreign_key: true |
-| label              | string   | null: false                    |
-| color              | string   | null: false                    |
+| journal_id         | bigint   | null: false, foreign_key: true |
+| colors             | json     | null: false                    |
+| labels             | json     | null: false                    |
 | created_at         | datetime | null: false                    |
 | updated_at         | datetime | null: false                    |
 
