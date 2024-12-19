@@ -52,4 +52,4 @@ production:
   <<: *default
   database: kokoro_task_production
   username: kokoro_task
-  password: <%= ENV["KOKORO_TASK_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
