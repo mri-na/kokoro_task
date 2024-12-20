@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  
   def edit
   end
 
@@ -8,6 +10,11 @@ class UsersController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def index
+    # マイページ用の処理を書く
+    @user = current_user
   end
 
   private
