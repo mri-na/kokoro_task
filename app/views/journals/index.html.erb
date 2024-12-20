@@ -1,0 +1,31 @@
+<h1>Journal一覧</h1>
+<table>
+<thead>
+<tr>
+  <div class='account-page' id='account-page'>
+    <h1>マイページ</h1>
+    <p>こんにちは、<%= link_to current_user.nickname, edit_user_registration_path(current_user) %> さん！</p>
+  </div>
+<th>日付</th>
+<th>気分</th>
+<th>内容</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<% @journals.each do |journal| %>
+<tr>
+<td><%= journal.entry_date %></td>
+<td><%= journal.mood %></td>
+<td><%= journal.content.truncate(20) %></td>
+<td>
+<%= link_to '詳細', journal_path(journal) %>
+<%= link_to '編集', edit_journal_path(journal) %>
+<%= link_to '削除', journal_path(journal), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<%= link_to '新規作成', new_journal_path %>
