@@ -1,0 +1,33 @@
+<h1>ジャーナル編集</h1>
+
+<%= form_with(model: @journal, local: true) do |form| %>
+  <% if @journal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@journal.errors.count, "エラー") %>が発生しました:</h2>
+      <ul>
+        <% @journal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :entry_date, '日付' %>
+    <%= form.date_field :entry_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :mood, '気分' %>
+    <%= form.text_field :mood, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :content, '内容' %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+
+  <%= form.submit '更新する', class: 'btn btn-primary' %>
+<% end %>
+<%= link_to '削除', journal_path(@journal), method: :delete, data: { turbo_method: :delete }, class: 'btn'%>
+<%= link_to 'キャンセル', journal_path(@journal), class: 'btn btn-secondary' %>
