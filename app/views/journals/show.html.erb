@@ -1,0 +1,7 @@
+<h1>ジャーナル詳細</h1>
+<p><strong>日付:</strong> <%= @journal.entry_date %></p>
+<p><strong>気分:</strong> <%= @journal.mood %></p>
+<p><strong>内容:</strong> <%= @journal.content %></p>
+
+<%= link_to '編集', edit_journal_path(@journal), class: 'btn btn-primary' %>
+<%= link_to '一覧に戻る', journals_path, class: 'btn btn-secondary' %>

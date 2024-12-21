@@ -20,8 +20,6 @@
 <td><%= journal.content.truncate(20) %></td>
 <td>
 <%= link_to '詳細', journal_path(journal) %>
-<%= link_to '編集', edit_journal_path(journal) %>
-<%= link_to '削除', journal_path(journal), method: :delete, data: { confirm: '本当に削除しますか？' } %>
 </td>
 </tr>
 <% end %>
