@@ -1,4 +1,6 @@
 class JournalsController < ApplicationController
+  before_action :set_journal, only: [:destroy, :edit, :update, :show]
+  
   def index
     @journals = Journal.all
   end
@@ -12,17 +14,14 @@ class JournalsController < ApplicationController
   end
 
   def destroy
-    @journal = Journal.find(params[:id])
     @journal.destroy
     redirect_to journals_path, notice: 'ジャーナルを削除しました。'
   end
 
   def edit
-    @journal = Journal.find(params[:id])
   end
 
   def update
-    @journal = Journal.find(params[:id])
     if @journal.update(journal_params)
       redirect_to @journal, notice: 'ジャーナルを更新しました。'
     else
@@ -31,10 +30,13 @@ class JournalsController < ApplicationController
   end
 
   def show
-    @journal = Journal.find(params[:id])
   end
 
   private
+  def set_journal
+    @journal = Journal.find(params[:id])
+  end
+  
   def journal_params
     params.require(:journal).permit(:entry_date, :mood, :content).merge(user_id: current_user.id)
   end
