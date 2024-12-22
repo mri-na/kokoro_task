@@ -6,22 +6,23 @@
     <h1>マイページ</h1>
     <p>こんにちは、<%= link_to current_user.nickname, edit_user_registration_path(current_user) %> さん！</p>
   </div>
-<th>日付</th>
-<th>気分</th>
-<th>内容</th>
-<th>操作</th>
 </tr>
 </thead>
 <tbody>
 <% @journals.each do |journal| %>
-<tr>
-<td><%= journal.entry_date %></td>
-<td><%= journal.mood %></td>
-<td><%= journal.content.truncate(20) %></td>
-<td>
-<%= link_to '詳細', journal_path(journal) %>
-</td>
-</tr>
+  <div class="journal-entry">
+    <p><%= journal.entry_date %></p>
+    <p><%= journal.content %></p>
+    <% if journal.mood_option %>
+      <p>Feelings: <%= journal.mood_option.labels.join(", ") %></p>
+      <div style="display: flex;">
+        <% journal.mood_option.colors.each do |color| %>
+          <div style="width: 20px; height: 20px; background-color: <%= color %>;"></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to '詳細', journal_path(journal) %>
 <% end %>
 </tbody>
 </table>
