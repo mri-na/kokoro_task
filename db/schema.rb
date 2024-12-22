@@ -10,15 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_20_125152) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_21_122806) do
   create_table "journals", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "entry_date", null: false
-    t.string "mood", null: false
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_journals_on_user_id"
+  end
+
+  create_table "mood_options", charset: "utf8", force: :cascade do |t|
+    t.string "optionable_type", null: false
+    t.bigint "optionable_id", null: false
+    t.json "colors", null: false
+    t.json "labels", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["optionable_type", "optionable_id"], name: "index_mood_options_on_optionable"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|

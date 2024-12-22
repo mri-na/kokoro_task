@@ -1,0 +1,28 @@
+<h3>感情を選択してください</h3>
+<%= form_with(model: [@target, @mood_option], local: true) do |form| %>
+  <div>
+    <% @mood_labels.each do |category, labels| %>
+      <h4><%= category %></h4>
+      <% labels.each do |label| %>
+        <label>
+          <%= form.text_field "labels[#{category}][#{label}]", value: label, readonly: true %> <%= label %>
+        </label>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h3>感情の色を選択してください</h3>
+  <div>
+    <% @mood_colors.each do |category, colors| %>
+      <h4><%= category %></h4>
+      <% colors.each do |emotion, color| %>
+        <label>
+          <%= form.text_field "colors[#{category}][#{emotion}]", value: color, readonly: true %>
+          <span style="background-color: <%= color %>; width: 20px; height: 20px; display: inline-block;"></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= form.submit "登録する" %>
+<% end %>

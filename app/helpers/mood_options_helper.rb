@@ -1,0 +1,2 @@
+module MoodOptionsHelper
+end

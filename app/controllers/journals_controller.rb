@@ -9,8 +9,15 @@ class JournalsController < ApplicationController
   end
 
   def create
-    Journal.create(journal_params)
-    redirect_to '/'
+    @journal = Journal.new(journal_params)
+    if @journal.save
+      # 成功時に感情選択ページにリダイレクト
+      redirect_to new_mood_option_path(journal_id: @journal.id)
+    else
+      # 失敗時に再度入力画面を表示
+      flash.now[:alert] = "投稿に失敗しました。もう一度お試しください。"
+      render :new
+    end
   end
 
   def destroy
@@ -38,6 +45,6 @@ class JournalsController < ApplicationController
   end
   
   def journal_params
-    params.require(:journal).permit(:entry_date, :mood, :content).merge(user_id: current_user.id)
+    params.require(:journal).permit(:entry_date, :content).merge(user_id: current_user.id)
   end
 end
