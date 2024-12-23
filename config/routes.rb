@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   resources :journals do
     resources :mood_options, only: [:new, :create]
   end
+
+  resources :tasks do
+    resources :mood_options, only: [:new, :create]
+  end
 end
