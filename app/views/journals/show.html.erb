@@ -1,5 +1,12 @@
-<h1>ジャーナル詳細</h1>
-<p><strong>日付:</strong> <%= @journal.entry_date %></p>
+<!-- ジャーナル詳細 -->
+<p> <%= @journal.content %></p>
+<p> <%= @journal.entry_date %></p>
+    <% if @journal.mood_option %>
+    <div style="display: flex;">
+      <p><%= @journal.mood_option.labels.join(", ") %></p>
+      <p><% @journal.mood_option.colors.join %></P>
+    </div>
+    <% end %>
 <!-- <p>
   <strong>気分:</strong>
   <% if @mood_option&.average_color %>
@@ -9,7 +16,6 @@
     気分データがありません
   <% end %>
 </p> -->
-<p><strong>内容:</strong> <%= @journal.content %></p>
 
 <%= link_to '編集', edit_journal_path(@journal), class: 'btn btn-primary' %>
 <%= link_to '一覧に戻る', journals_path, class: 'btn btn-secondary' %>

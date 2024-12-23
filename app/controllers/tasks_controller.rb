@@ -9,13 +9,13 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = current_user.tasks.build
+    @task = Task.new
   end
 
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to @task, notice: 'タスクを作成しました。'
+      redirect_to new_task_mood_option_path(@task), notice: 'タスクを作成しました。'
     else
       render :new, status: :unprocessable_entity
     end
