@@ -1,7 +1,6 @@
 class MoodOptionsController < ApplicationController
   before_action :set_target, only: [:new, :create]
   def new
-    @target = Journal.find(params[:journal_id]) # ここで Journal モデルを取得
     @mood_option = @target.build_mood_option
     @mood_colors = {
       "Positive" => { "満足" => "#FFD700", "感謝" => "#FFFF00", "嬉しい" => "#FFEC8B", "ワクワク" => "#FFEC8B",
@@ -20,8 +19,6 @@ class MoodOptionsController < ApplicationController
   end
   
   def create
-    @target = Journal.find(params[:journal_id])
-  
     @mood_option = @target.build_mood_option(
       colors: params.dig(:mood_option, :colors), # 選択された色を取得
       labels: params.dig(:mood_option, :labels) # 選択されたラベルを取得
@@ -42,7 +39,8 @@ class MoodOptionsController < ApplicationController
     elsif params[:task_id]
       @target = Task.find(params[:task_id])
     else
-      raise "No valid target found for MoodOption"
+      flash[:alert] = "No valid target found for MoodOption"
+      redirect_to tasks_path and return # 適切なリダイレクト先に変更
     end
   end
 
