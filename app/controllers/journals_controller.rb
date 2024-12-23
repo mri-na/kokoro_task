@@ -2,21 +2,19 @@ class JournalsController < ApplicationController
   before_action :set_journal, only: [:destroy, :edit, :update, :show]
   
   def index
-    @journals = Journal.all
+    @journals = Journal.includes(:mood_option)
   end
   def new
     @journal = Journal.new
   end
 
   def create
-    @journal = Journal.new(journal_params)
+    @journal = current_user.journals.build(journal_params)
     if @journal.save
-      # 成功時に感情選択ページにリダイレクト
-      redirect_to new_mood_option_path(journal_id: @journal.id)
+      # ジャーナル作成後、ポリモーフィック関連で MoodOption の new アクションにリダイレクト
+      redirect_to new_journal_mood_option_path(@journal)
     else
-      # 失敗時に再度入力画面を表示
-      flash.now[:alert] = "投稿に失敗しました。もう一度お試しください。"
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,6 +35,8 @@ class JournalsController < ApplicationController
   end
 
   def show
+    @journal = Journal.find(params[:id])
+    # @mood_option = @journal.mood_option
   end
 
   private

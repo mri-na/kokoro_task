@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
-
+  has_one :mood_option, as: :optionable, dependent: :destroy
   validates :title, presence: true
   validates :status, inclusion: { in: [0, 1, 2], message: "%{value} is not a valid status" }
   validates :priority, inclusion: { in: [0, 1, 2], message: "%{value} is not a valid priority" }
