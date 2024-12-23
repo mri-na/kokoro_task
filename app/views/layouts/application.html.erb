@@ -16,6 +16,11 @@
         <h1 class="grid-6"><a href="/">KokoroTask</a></h1>
         <div class="user_nav grid-6">
           <!--<a class="post" href="/journals/new">投稿する</a> -->
+          <nav>
+            <%= link_to 'ダッシュボード', dashboard_path %>
+            <%= link_to 'ジャーナル一覧', journals_path %>
+            <%= link_to 'タスク一覧', tasks_path %>
+          </nav>
         </div>
       </div>
     </header>
