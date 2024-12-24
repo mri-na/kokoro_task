@@ -29,5 +29,6 @@
 
   <%= form.submit '更新する', class: 'btn btn-primary' %>
 <% end %>
-<%= link_to '削除', journal_path(@journal), method: :delete, data: { turbo_method: :delete }, class: 'btn'%>
+<%= button_to '削除', journal_path(@journal), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn' %>
+<!-- link_toではなくbutton_toにすると削除できた -->
 <%= link_to 'キャンセル', journal_path(@journal), class: 'btn btn-secondary' %>

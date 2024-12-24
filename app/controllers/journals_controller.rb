@@ -19,11 +19,15 @@ class JournalsController < ApplicationController
   end
 
   def destroy
-    @journal.destroy
-    redirect_to journals_path, notice: 'ジャーナルを削除しました。'
+    if @journal.destroy
+      redirect_to root_path
+    else
+      redirect_to journals_url, status: :unprocessable_entity, notice: 'ジャーナルが削除されました。'
+    end
   end
 
   def edit
+    @journal = Journal.find(params[:id])
   end
 
   def update

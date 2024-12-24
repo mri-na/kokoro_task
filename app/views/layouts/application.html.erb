@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KokoroTask</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
   </head>
 
   <body>
+    <div class="body__container">
 	  <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">KokoroTask</a></h1>
-        <div class="user_nav grid-6">
-          <!--<a class="post" href="/journals/new">投稿する</a> -->
-          <nav>
-            <%= link_to 'ダッシュボード', dashboard_path %>
-            <%= link_to 'ジャーナル一覧', journals_path %>
-            <%= link_to 'タスク一覧', tasks_path %>
-          </nav>
+      <div class="header-content">
+        <h1>ココロタスク</h1>
+        <div class="header-icons">
+          <%= link_to '#', class: 'icon' do %>
+            🔍 <!-- 検索アイコン -->
+          <% end %>
+          <%= link_to '#', class: 'icon' do %>
+            📅 <!-- カレンダーアイコン -->
+          <% end %>
         </div>
       </div>
     </header>
-    <%= yield %>
-    <footer>
-      <p>
-        Copyright KokoroTask 2025.
-      </p>
+      <%= yield %>
+    <footer class="footer">
+      <nav>
+        <%= link_to 'ダッシュボード', dashboard_path %>
+        <%= link_to 'ジャーナル一覧', journals_path %>
+        <%= link_to 'タスク一覧', tasks_path %>
+      </nav>
+      <p>© 2024 ココロタスク</p>
     </footer>
+    </div>
   </body>
 </html>
