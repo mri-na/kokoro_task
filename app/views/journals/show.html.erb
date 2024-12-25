@@ -1,6 +1,15 @@
 <!-- ジャーナル詳細 -->
-<p> <%= @journal.content %></p>
-<p> <%= @journal.entry_date %></p>
+<div class="journal_show__btn">
+  <%= link_to '＜ 戻る', root_path, class: 'btn' %>
+  <%= link_to '編集 ＞', edit_journal_path(@journal), class: 'btn' %>
+</div>
+<div class="journal_show">
+  <div class="journal_show__content">
+    <%= @journal.content %>
+  </div>
+  <div class="journal_show__date">
+    <%= @journal.entry_date %>
+  </div>
     <% if @journal.mood_option %>
     <div style="display: flex;">
       <p><%= @journal.mood_option.labels.join(", ") %></p>
@@ -16,6 +25,4 @@
     気分データがありません
   <% end %>
 </p> -->
-
-<%= link_to '編集', edit_journal_path(@journal), class: 'btn btn-primary' %>
-<%= link_to '一覧に戻る', journals_path, class: 'btn btn-secondary' %>
+</div>

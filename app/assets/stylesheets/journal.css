@@ -1,0 +1,23 @@
+.journal_show {
+  background-color: #FFFAFA;
+  margin: 40px 40px;
+  padding: 24px 24px;
+  border-radius: 10px;
+}
+.journal_show__content {
+  font-size: 16px;
+}
+.journal_show__date {
+  margin-top: 24px;
+  font-size: 8px;
+}
+.journal_show__btn {
+  margin: 40px 40px 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  margin: 0 8px 0 8px;
+  text-decoration: none;
+  color: inherit;
+}
