@@ -14,19 +14,27 @@
  *= require_self
  */
  header {
-  background-color: #f0f0f0;
+  position: fixed; /* ヘッダーを固定 */
+  top: 24px; /* 上端に配置 */
+  left: 0; /* 左端に配置 */
+  width: 100%; /* 横幅を画面全体に広げる */
+  background-color: transparent; /* 背景を透明に */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: center; /* コンテンツを中央揃え */
+  align-items: center; /* 縦方向に中央揃え */
+  text-align: center; /* テキストを中央揃え */
+  z-index: 1000; /* ヘッダーを前面に表示 */
+  height: 60px; /* ヘッダーの高さを設定 */
 }
  .body__container{
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
+  background-color: #FFF5EE;
   /*padding: 1rem 0; */
   width: 100%;
   max-width: 800px; /* PCでも一定の大きさを保つ */
   margin: 0 auto;
   min-height: 100vh;
+  color: #000080; /* デフォルトの文字色をネイビーに設定 */
+  padding-top: 40px;
 }

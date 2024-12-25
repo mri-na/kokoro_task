@@ -13,28 +13,24 @@
 
   <body>
     <div class="body__container">
-	  <header class="header">
-      <div class="header-content">
-        <h1>ココロタスク</h1>
-        <div class="header-icons">
-          <%= link_to '#', class: 'icon' do %>
-            🔍 <!-- 検索アイコン -->
-          <% end %>
-          <%= link_to '#', class: 'icon' do %>
-            📅 <!-- カレンダーアイコン -->
-          <% end %>
+    <% unless controller_name == 'journals' && action_name == 'show' %>
+	    <header class="header">
+        <div class="header-content">
+          <h1>ココロタスク</h1>
         </div>
-      </div>
-    </header>
+      </header>
+    <% end %>
       <%= yield %>
-    <footer class="footer">
-      <nav>
-        <%= link_to 'ダッシュボード', dashboard_path %>
-        <%= link_to 'ジャーナル一覧', journals_path %>
-        <%= link_to 'タスク一覧', tasks_path %>
-      </nav>
+    <% unless controller_name == 'journals' && action_name == 'show' %>
+      <footer class="footer">
+        <nav>
+          <%= link_to 'ダッシュボード', dashboard_path %>
+          <%= link_to 'ジャーナル一覧', journals_path %>
+          <%= link_to 'タスク一覧', tasks_path %>
+        </nav>
       <p>© 2024 ココロタスク</p>
-    </footer>
+      </footer>
+    <% end %>
     </div>
   </body>
 </html>

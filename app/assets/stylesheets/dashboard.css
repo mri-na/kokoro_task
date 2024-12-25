@@ -29,14 +29,17 @@ ul {
   color: #888;
 }
 .task-content {
-
+  background-color: #FFFFFF;
+  margin: 8px 0;
+  padding: 16px 16px;
+  border-radius: 10px;
 }
 .task-link {
   text-decoration: none;
   color: inherit;
 }
 .journal-content {
-  background-color: #cece39;
+  background-color: #FFFFFF;
   margin: 8px 0;
   padding: 16px 16px;
   border-radius: 10px;
