@@ -1,34 +1,33 @@
-<h1>ジャーナル編集</h1>
-
+<div class="journal_edit__btn">
+  <%= link_to '＜ 戻る', root_path, class: 'btn' %>
+  <%= link_to 'ムード ＞', root_path, class: 'btn' %>
+</div>
+<div class="journal_edit">
 <%= form_with(model: @journal, local: true) do |form| %>
   <% if @journal.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@journal.errors.count, "エラー") %>が発生しました:</h2>
-      <ul>
+      <%= pluralize(@journal.errors.count, "エラー") %>が発生しました:
         <% @journal.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <%= message %>
         <% end %>
-      </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= form.label :entry_date, '日付' %>
-    <%= form.date_field :entry_date, class: 'form-control' %>
+  <div class="edit_form">
+    <div class="edit_form__date">
+      <%= form.date_field :entry_date, class: 'form_control__date' %>
+    </div>
+    <div class="edit_form__content">
+      <div class="form-control-container">
+        <%= form.text_area :content, class: 'form_control__content' %>
+      </div>
+      <div class="delete-button-container">
+        <!-- link_toではなくbutton_toにすると削除できた -->
+        <%= button_to journal_path(@journal), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-button' do %>
+          ✖️
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :mood, '気分' %>
-    <%= form.text_field :mood, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :content, '内容' %>
-    <%= form.text_area :content, class: 'form-control' %>
-  </div>
-
-  <%= form.submit '更新する', class: 'btn btn-primary' %>
+  <%= form.submit '更新', class: 'btn_update' %>
 <% end %>
-<%= button_to '削除', journal_path(@journal), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn' %>
-<!-- link_toではなくbutton_toにすると削除できた -->
-<%= link_to 'キャンセル', journal_path(@journal), class: 'btn btn-secondary' %>
+</div>

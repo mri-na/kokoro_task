@@ -38,3 +38,15 @@
   color: #000080; /* デフォルトの文字色をネイビーに設定 */
   padding-top: 40px;
 }
+/* フォーム部分 */
+textarea {
+  resize: none; /* 拡大・縮小を禁止 */
+}
+textarea:focus {
+  outline: none; /* 各フォーム要素の青い枠を無効化 */
+  border-color: transparent; /* 必要に応じて枠線も透明に */
+}
+/* フォーカスされた入力フィールドのカーソル色を変更 */
+input:focus, textarea:focus {
+  caret-color: #FF4500; /* カーソルの色をオレンジに変更 */
+}

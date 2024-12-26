@@ -1,5 +1,6 @@
+/* ジャーナル詳細画面 */
 .journal_show {
-  background-color: #FFFAFA;
+  background-color: #FFFFFF;
   margin: 40px 40px;
   padding: 24px 24px;
   border-radius: 10px;
@@ -20,4 +21,89 @@
   margin: 0 8px 0 8px;
   text-decoration: none;
   color: inherit;
+}
+/* ジャーナル編集画面 */
+.journal_edit {
+  margin: 8px 40px;
+}
+.form_control__date,
+.form_control__content {
+  border: none;
+  box-shadow: none;
+  background-color: transparent; /* 背景もリセットしたい場合 */
+  font-size: 16px;
+  color: #000080; /* デフォルトの文字色をネイビーに設定 */
+}
+.form_control__content {
+  margin: 16px 16px;
+  flex: 1; /* コンテンツエリアを広げる */
+  margin-right: 10px; /* 削除ボタンとの間にスペースを追加 */
+  width: 100%; /* テキストエリアの幅を100%に */
+  padding: 10px,10px; /* 内側のスペースを確保 */
+  box-sizing: border-box; /* パディングを含む幅調整 */
+}
+.edit_form {
+  display: flex; /* 子要素をフレックスボックスで管理 */
+  flex-direction: column; /* 子要素を縦に並べる */
+  align-items: center; /* 子要素を中央揃え */
+  gap: 20px; /* 子要素間の間隔を調整 */
+}
+.edit_form__date,
+.edit_form__content {
+  text-align: left; /* 左揃え */
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+.edit_form__date {
+  padding: 4px 16px;
+}
+.edit_form__content {
+  width: 100%;
+  display: flex; /* 子要素を横並びに配置 */
+  justify-content: space-between; /* 両端に配置 */
+  position: relative; /* 子要素の絶対配置を有効にする */
+  margin-bottom: 20px; /* 他の要素との間隔を調整 */
+}
+.form-control-container {
+  position: relative; /* 削除ボタンの位置基準を指定 */
+}
+.journal_edit__btn {
+  margin: 40px 40px 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.delete-button-container {
+  display: flex; /* 削除ボタンをフレキシブルに配置 */
+  align-items: center; /* 削除ボタンの高さを中央に揃える */
+  position: absolute; /* 親要素の右上に配置 */
+  top: 8px; /* 上からの位置 */
+  right: 8px; /* 右からの位置 */
+}
+.delete-button {
+  background-color: transparent; /* 背景を透明に */
+  border: none; /* 枠線を削除 */
+  font-size: 24px; /* バツ印のサイズを調整 */
+  color: #000080; /* バツ印の色をネイビーに */
+  cursor: pointer; /* ホバー時にクリック可能なカーソルを表示 */
+  transition: transform 0.2s ease, color 0.2s ease; /* ホバー時のアニメーション */
+}
+.delete-button:hover {
+  color: darkred; /* ホバー時の色 */
+  transform: scale(1.2); /* ホバー時に拡大 */
+}
+.btn_update {
+  color: #000080;
+  display: block; /* 【変更点】ボタンをブロック要素に変更 */
+  margin: 20px auto; /* 【変更点】上下に20pxのマージンを設定し、中央寄せ */
+  padding: 10px 20px; /* 【変更点】ボタンの内側スペースを調整 */
+  background-color: #f0f0f0; /* 【変更点】背景色を追加 */
+  border: 2px solid #000080; /* 【変更点】ボーダーを追加 */
+  border-radius: 5px; /* 【変更点】角を丸める */
+  text-align: center; /* 【変更点】テキストを中央揃え */
+  font-size: 16px; /* 【変更点】フォントサイズを調整 */
+  cursor: pointer; /* 【変更点】カーソルをポインターに */
+}
+.btn_update:hover {
+  background-color: #d3d3ff; /* 【変更点】ホバー時の背景色 */
+  color: #000080; /* 【変更点】ホバー時の文字色 */
 }

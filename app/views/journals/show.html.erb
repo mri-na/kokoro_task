@@ -11,7 +11,7 @@
     <%= @journal.entry_date %>
   </div>
     <% if @journal.mood_option %>
-    <div style="display: flex;">
+    <div style="journal_show_moods">
       <p><%= @journal.mood_option.labels.join(", ") %></p>
       <p><% @journal.mood_option.colors.join %></P>
     </div>

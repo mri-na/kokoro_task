@@ -27,14 +27,13 @@ class JournalsController < ApplicationController
   end
 
   def edit
-    @journal = Journal.find(params[:id])
   end
 
   def update
     if @journal.update(journal_params)
-      redirect_to @journal, notice: 'ジャーナルを更新しました。'
+      redirect_to root_path, notice: 'ジャーナルを更新しました。'
     else
-      render :edit, alert: '更新に失敗しました。'
+      render :edit, status: :unprocessable_entity
     end
   end
 
