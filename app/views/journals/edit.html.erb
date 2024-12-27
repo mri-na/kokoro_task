@@ -1,33 +1,5 @@
 <div class="journal_edit__btn">
   <%= link_to '＜ 戻る', root_path, class: 'btn' %>
-  <%= link_to 'ムード ＞', root_path, class: 'btn' %>
+  <%= link_to '削除 ＞',"/journals/#{@journal.id}", data: {turbo_method: :delete}, class: 'btn' %>
 </div>
-<div class="journal_edit">
-<%= form_with(model: @journal, local: true) do |form| %>
-  <% if @journal.errors.any? %>
-    <div id="error_explanation">
-      <%= pluralize(@journal.errors.count, "エラー") %>が発生しました:
-        <% @journal.errors.full_messages.each do |message| %>
-          <%= message %>
-        <% end %>
-    </div>
-  <% end %>
-  <div class="edit_form">
-    <div class="edit_form__date">
-      <%= form.date_field :entry_date, class: 'form_control__date' %>
-    </div>
-    <div class="edit_form__content">
-      <div class="form-control-container">
-        <%= form.text_area :content, class: 'form_control__content' %>
-      </div>
-      <div class="delete-button-container">
-        <!-- link_toではなくbutton_toにすると削除できた -->
-        <%= button_to journal_path(@journal), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-button' do %>
-          ✖️
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <%= form.submit '更新', class: 'btn_update' %>
-<% end %>
-</div>
+<%= render 'form', journal: @journal %>

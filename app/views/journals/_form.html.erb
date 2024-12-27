@@ -1,0 +1,17 @@
+<div class="journal_edit">
+  <%= form_with(model: @journal, local: true) do |f| %>
+    <div class="edit_form">
+      <div class="edit_form__date">
+        <%= f.date_field :entry_date, class: 'form_control__date' %>
+      </div>
+    <div class="edit_form__content">
+      <div class="form-control-container">
+        <%= f.text_area :content, placeholder: '今の気持ちを書き出してみよう', class: 'form_control__content', rows: 6, 
+  cols: 82 %>
+      </div>
+    </div>
+    <div>
+    <%= f.submit '次へ', class: 'btn_create' %>
+    </div>
+  <% end %>
+</div>

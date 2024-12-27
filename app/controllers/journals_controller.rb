@@ -31,7 +31,7 @@ class JournalsController < ApplicationController
 
   def update
     if @journal.update(journal_params)
-      redirect_to root_path, notice: 'ジャーナルを更新しました。'
+      redirect_to new_journal_mood_option_path(@journal), notice: 'ジャーナルを更新しました。'
     else
       render :edit, status: :unprocessable_entity
     end

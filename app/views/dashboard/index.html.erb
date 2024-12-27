@@ -1,6 +1,7 @@
 <div class="body__container">
   <div class ="journal_index">
     <div class="date-group">
+    <%= link_to 'ジャーナル新規作成', new_journal_path %>
     <% @grouped_entries.each do |date, entries| %>
         <div class="journal-date">
           <div class="journal-day"><%= date.strftime("%d") %></div> <!-- 日 -->

@@ -12,8 +12,8 @@
   </div>
     <% if @journal.mood_option %>
     <div style="journal_show_moods">
-      <p><%= @journal.mood_option.labels.join(", ") %></p>
-      <p><% @journal.mood_option.colors.join %></P>
+      <%= @journal.mood_option.labels.join(", ") %>
+      <% @journal.mood_option.colors.join %>
     </div>
     <% end %>
 <!-- <p>

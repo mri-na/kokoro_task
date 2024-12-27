@@ -36,11 +36,14 @@
 }
 .form_control__content {
   margin: 16px 16px;
-  flex: 1; /* コンテンツエリアを広げる */
-  margin-right: 10px; /* 削除ボタンとの間にスペースを追加 */
   width: 100%; /* テキストエリアの幅を100%に */
-  padding: 10px,10px; /* 内側のスペースを確保 */
+  padding: 10px 40px; /* 内側のスペースを確保 */
   box-sizing: border-box; /* パディングを含む幅調整 */
+}
+.form_control__content::placeholder {
+  white-space: nowrap; /* 折り返しを防ぐ */
+  overflow: hidden;    /* はみ出した部分を隠す */
+  text-overflow: ellipsis; /* 省略記号（...）を表示 */
 }
 .edit_form {
   display: flex; /* 子要素をフレックスボックスで管理 */
@@ -58,43 +61,22 @@
   padding: 4px 16px;
 }
 .edit_form__content {
+  padding-right: 32px;
   width: 100%;
   display: flex; /* 子要素を横並びに配置 */
   justify-content: space-between; /* 両端に配置 */
   position: relative; /* 子要素の絶対配置を有効にする */
-  margin-bottom: 20px; /* 他の要素との間隔を調整 */
-}
-.form-control-container {
-  position: relative; /* 削除ボタンの位置基準を指定 */
+  margin-bottom: 8px; /* 他の要素との間隔を調整 */
 }
 .journal_edit__btn {
   margin: 40px 40px 0 40px;
   display: flex;
   justify-content: space-between;
 }
-.delete-button-container {
-  display: flex; /* 削除ボタンをフレキシブルに配置 */
-  align-items: center; /* 削除ボタンの高さを中央に揃える */
-  position: absolute; /* 親要素の右上に配置 */
-  top: 8px; /* 上からの位置 */
-  right: 8px; /* 右からの位置 */
-}
-.delete-button {
-  background-color: transparent; /* 背景を透明に */
-  border: none; /* 枠線を削除 */
-  font-size: 24px; /* バツ印のサイズを調整 */
-  color: #000080; /* バツ印の色をネイビーに */
-  cursor: pointer; /* ホバー時にクリック可能なカーソルを表示 */
-  transition: transform 0.2s ease, color 0.2s ease; /* ホバー時のアニメーション */
-}
-.delete-button:hover {
-  color: darkred; /* ホバー時の色 */
-  transform: scale(1.2); /* ホバー時に拡大 */
-}
-.btn_update {
+.btn_create {
   color: #000080;
   display: block; /* 【変更点】ボタンをブロック要素に変更 */
-  margin: 20px auto; /* 【変更点】上下に20pxのマージンを設定し、中央寄せ */
+  margin: 16px auto; /* 【変更点】上下に20pxのマージンを設定し、中央寄せ */
   padding: 10px 20px; /* 【変更点】ボタンの内側スペースを調整 */
   background-color: #f0f0f0; /* 【変更点】背景色を追加 */
   border: 2px solid #000080; /* 【変更点】ボーダーを追加 */
@@ -103,7 +85,7 @@
   font-size: 16px; /* 【変更点】フォントサイズを調整 */
   cursor: pointer; /* 【変更点】カーソルをポインターに */
 }
-.btn_update:hover {
+.btn_create:hover {
   background-color: #d3d3ff; /* 【変更点】ホバー時の背景色 */
   color: #000080; /* 【変更点】ホバー時の文字色 */
 }
