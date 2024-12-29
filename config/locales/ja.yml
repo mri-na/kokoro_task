@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    attributes:
+      task:
+        status:
+          not_started: "未着手"
+          in_progress: "進行中"
+          completed: "完了"
+        priority:
+          low: "優先度３"
+          medium: "優先度２"
+          high: "優先度１"
+ja:
+  date:
+    order: 
+      - :year
+      - :month
+      - :day
+ja:
+  date:
+    month_names: [nil, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+    day_names: ["日", "月", "火", "水", "木", "金", "土"]
+    order: [:year, :month, :day]

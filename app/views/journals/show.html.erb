@@ -10,12 +10,12 @@
   <div class="journal_show__date">
     <%= @journal.entry_date %>
   </div>
+  <div style="journal_show_moods">
     <% if @journal.mood_option %>
-    <div style="journal_show_moods">
       <%= @journal.mood_option.labels.join(", ") %>
-      <% @journal.mood_option.colors.join %>
-    </div>
+      <%= @journal.mood_option.colors.join %>
     <% end %>
+  </div>
 <!-- <p>
   <strong>気分:</strong>
   <% if @mood_option&.average_color %>

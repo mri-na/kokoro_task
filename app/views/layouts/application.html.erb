@@ -17,7 +17,8 @@
 
   <body>
     <div class="body__container">
-    <% unless controller_name == 'journals' && (action_name == 'show' || action_name == 'edit' || action_name == 'new') %>
+    <% unless (controller_name == 'journals' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) || 
+              (controller_name == 'tasks' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) %>
 	    <header class="header">
         <div class="header-content">
           <h1>ココロタスク</h1>
@@ -25,7 +26,8 @@
       </header>
     <% end %>
       <%= yield %>
-    <% unless controller_name == 'journals' && (action_name == 'show' || action_name == 'edit' || action_name == 'new') %>
+    <% unless (controller_name == 'journals' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) || 
+              (controller_name == 'tasks' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) %>
       <footer class="footer">
         <nav>
           <%= link_to 'ダッシュボード', dashboard_path %>
