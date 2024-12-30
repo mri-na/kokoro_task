@@ -45,7 +45,7 @@
   overflow: hidden;    /* はみ出した部分を隠す */
   text-overflow: ellipsis; /* 省略記号（...）を表示 */
 }
-.edit_form {
+.journal_edit__form {
   display: flex; /* 子要素をフレックスボックスで管理 */
   flex-direction: column; /* 子要素を縦に並べる */
   align-items: center; /* 子要素を中央揃え */

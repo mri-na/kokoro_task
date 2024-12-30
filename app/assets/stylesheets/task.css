@@ -13,6 +13,7 @@
   font-size: 16px;
 }
 .task_show__due_date {
+
 }
 .task_show__btn {
   margin: 40px 40px 0 40px;
@@ -23,4 +24,88 @@
   margin: 0 8px 0 8px;
   text-decoration: none;
   color: inherit;
+}
+/* タスク編集画面 */
+.task_edit {
+  margin: 8px 40px;
+}
+.edit_form__title,
+.edit_form__description  {
+  border: none;
+  box-shadow: none;
+  background-color: transparent; /* 背景もリセットしたい場合 */
+  font-size: 16px;
+  color: #000080; /* デフォルトの文字色をネイビーに設定 */
+  margin: 8px;
+  width: 100%; /* テキストエリアの幅を100%に */
+  padding: 8px; /* 内側のスペースを確保 */
+  box-sizing: border-box; /* パディングを含む幅調整 */
+}
+.edit_form__limits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 子要素を中央揃え */
+  background-color: #FFFFFF;
+  margin: 8px 40px;
+  padding: 24px;
+  border-radius: 10px;
+}
+.form_control__title,
+.form_control__description,
+.form_control__date,
+.form_control__priority,
+.form_control__status {
+  border: none;
+  box-shadow: none;
+  background-color: transparent; /* 背景もリセットしたい場合 */
+  font-size: 16px;
+  color: #000080; /* デフォルトの文字色をネイビーに設定 */
+}
+.form_control__title,
+.form_control__description {
+  margin: 16px 16px;
+  width: 100%; /* テキストエリアの幅を100%に */
+  padding: 16px; /* 内側のスペースを確保 */
+  box-sizing: border-box; /* パディングを含む幅調整 */
+}
+.form_control__content::placeholder {
+  white-space: nowrap; /* 折り返しを防ぐ */
+  overflow: hidden;    /* はみ出した部分を隠す */
+  text-overflow: ellipsis; /* 省略記号（...）を表示 */
+}
+.task_edit__form {
+  display: flex; /* 子要素をフレックスボックスで管理 */
+  flex-direction: column; /* 子要素を縦に並べる */
+  align-items: center; /* 子要素を中央揃え */
+  gap: 16px; /* 子要素間の間隔を調整 */
+}
+.edit_form__title,
+.edit_form__description,
+.edit_form__due_date,
+.edit_form__priority,
+.edit_form__status {
+  text-align: left; /* 左揃え */
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+.task_edit__btn {
+  margin: 24px 40px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn_create {
+  color: #000080;
+  display: block; /* 【変更点】ボタンをブロック要素に変更 */
+  margin: 16px auto; /* 【変更点】上下に20pxのマージンを設定し、中央寄せ */
+  padding: 10px 20px; /* 【変更点】ボタンの内側スペースを調整 */
+  background-color: #f0f0f0; /* 【変更点】背景色を追加 */
+  border: 2px solid #000080; /* 【変更点】ボーダーを追加 */
+  border-radius: 5px; /* 【変更点】角を丸める */
+  text-align: center; /* 【変更点】テキストを中央揃え */
+  font-size: 16px; /* 【変更点】フォントサイズを調整 */
+  cursor: pointer; /* 【変更点】カーソルをポインターに */
+}
+.btn_create:hover {
+  background-color: #d3d3ff; /* 【変更点】ホバー時の背景色 */
+  color: #000080; /* 【変更点】ホバー時の文字色 */
 }
