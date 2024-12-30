@@ -5,13 +5,13 @@ class DashboardController < ApplicationController
 
     # JournalとTaskをまとめる
     current_user.journals.each do |journal|
-      date = journal.entry_date
+      date = journal.entry_date.to_date
       @grouped_entries[date] ||= { journals: [], tasks: [] }
       @grouped_entries[date][:journals] << journal
     end
 
     current_user.tasks.each do |task|
-      date = task.due_date
+      date = task.due_date.to_date
       @grouped_entries[date] ||= { journals: [], tasks: [] }
       @grouped_entries[date][:tasks] << task
     end

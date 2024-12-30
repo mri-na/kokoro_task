@@ -1,32 +1,5 @@
-<h3>どんな気持ち？</h3>
-<h4>必須 最大3つまで選べるよ</h4>
-<%= form_with(url: polymorphic_path([@target, @mood_option]), local: true) do |form| %><!- ポリモーフィック関連 ->
-  <% @mood_colors.each do |category, emotions| %>
-    <h4><%= category %></h4>
-    <% emotions.each do |emotion, color| %>
-      <div>
-        <label>
-          <!-- チェックボックスで選択された色情報を送信 -->
-          <%= form.check_box "mood_option[colors][]", { multiple: true }, color, nil %>
-          <span style="background-color: <%= color %>; width: 20px; height: 20px; display: inline-block;"></span>
-          <%= emotion %>
-        </label>
-      </div>
-    <% end %>
-  <% end %>
-
-<h3>何について？</h3>
-<h4>必須 最大3つまで選べるよ</h4>
-  <div>
-    <% @mood_labels.each do |category, labels| %>
-      <h4><%= category %></h4>
-      <% labels.each do |label| %>
-        <label>
-          <%= form.check_box "mood_option[labels][]", { multiple: true }, label, nil %> <%= label %>
-        </label>
-      <% end %>
-    <% end %>
-  </div>
-
-  <%= form.submit "登録する" %>
-<% end %>
+<!-- 新しいムードを作成 -->
+<div class="journal_edit__btn">
+  <%= link_to '＜ 戻る', root_path, class: 'btn' %>
+</div>
+<%= render 'form', mood_option: @mood_option %>

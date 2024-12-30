@@ -10,15 +10,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <!-- importmapを最初に読み込む -->
     <%= javascript_importmap_tags %> <!-- これを追加 -->
-
     <!-- モジュールスクリプトを読み込む -->
-    <script type="module" src="<%= asset_path('application.js') %>"></script>
+    <script src="/assets/form_steps.js"></script>
   </head>
 
   <body>
     <div class="body__container">
     <% unless (controller_name == 'journals' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) || 
-              (controller_name == 'tasks' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) %>
+              (controller_name == 'tasks' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) || 
+              (controller_name == 'mood_options' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) %>
 	    <header class="header">
         <div class="header-content">
           <h1>ココロタスク</h1>
@@ -27,7 +27,8 @@
     <% end %>
       <%= yield %>
     <% unless (controller_name == 'journals' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) || 
-              (controller_name == 'tasks' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) %>
+              (controller_name == 'tasks' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) || 
+              (controller_name == 'mood_options' && (action_name == 'show' || action_name == 'edit' || action_name == 'new')) %>
       <footer class="footer">
         <nav>
           <%= link_to 'ダッシュボード', dashboard_path %>
