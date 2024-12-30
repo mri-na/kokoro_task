@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
     end
 
     # 日付順に並び替え
-      @grouped_entries = @grouped_entries.sort.to_h
+      @grouped_entries = @grouped_entries.sort.reverse.to_h
 
     # 記念日を取得
     today = Date.today
