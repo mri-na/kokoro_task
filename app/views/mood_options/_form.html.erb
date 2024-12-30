@@ -8,6 +8,7 @@
       <div class="mood_option__sub">
         最大3つまで選べるよ
       </div>
+      <div id="color-picker">
       <% @mood_colors.each do |category, emotions| %>
         <%= category %>
       <div class="emotion-grid">
@@ -15,7 +16,7 @@
           <div class="emotion-item">
             <label>
           <!-- チェックボックスで選択された色情報を送信 -->
-            <%= f.check_box "mood_option[colors][]", { multiple: true }, color, nil %>
+            <%= f.check_box "mood_option[colors][]", { multiple: true, class: "color-checkbox", data: { color: color } }, color, nil %>
             <span class="color-box" style="background-color: <%= color %>; width: 20px; height: 20px; display: inline-block;"></span>
             <%= emotion %>
             </label>
@@ -23,6 +24,13 @@
         <% end %>
       </div>
       <% end %>
+    </div>
+    </div>
+    <!-- 中間色を表示 -->
+    <div id="color-display" style="display: flex; align-items: center; justify-content: center;">
+      <div style="margin-bottom: 20px;">今のココロの色は　</div>
+      <div id="average-color" style="margin-bottom: 20px; width: 50px; height: 50px; background-color: #ffffff; border-radius: 10px;"></div>
+      <div style="margin-bottom: 20px;">　です</div>
     </div>
     <div class="mood_option_edit__btn">
       <button type="button" id="go-to-step2" class="btn_create">次へ</button>
@@ -50,7 +58,7 @@
       <% end %>
     </div>
     <div class="mood_option_edit__btn">
-      <%= f.submit "登録する", class: "btn_create"%>
+      <%= f.submit "登録", class: "btn_create"%>
     </div>
   </div>
 <% end %>

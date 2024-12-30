@@ -8,10 +8,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag "mood_option", media: 'all' %>
     <!-- importmapを最初に読み込む -->
     <%= javascript_importmap_tags %> <!-- これを追加 -->
     <!-- モジュールスクリプトを読み込む -->
     <script src="/assets/form_steps.js"></script>
+    <script src="/assets/controllers/form_steps_controller.js"></script>
   </head>
 
   <body>

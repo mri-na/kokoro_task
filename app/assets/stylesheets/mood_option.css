@@ -32,7 +32,6 @@
   margin-right: 8px; /* 感情名とのスペース */
   border-radius: 4px; /* 角丸（オプション） */
 }
-
 .mood_option_edit__btn {
   margin: 24px 40px 40px 40px;
   display: flex;
