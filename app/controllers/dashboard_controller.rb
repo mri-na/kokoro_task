@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
   before_action :set_journal, only: [:destroy, :edit, :update, :show]
   def index
     @grouped_entries = {}
+    @mood_options = MoodOption.all
 
     # JournalとTaskをまとめる
     current_user.journals.each do |journal|

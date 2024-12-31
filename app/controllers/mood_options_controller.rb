@@ -23,6 +23,7 @@ class MoodOptionsController < ApplicationController
       colors: params.dig(:mood_option, :colors), # 選択された色を取得
       labels: params.dig(:mood_option, :labels) # 選択されたラベルを取得
     )
+    @mood_option.average_color ||= "#ffffff" # デフォルト値を設定
   
     if @mood_option.save
       redirect_to @target, notice: "感情の選択が保存されました。"
@@ -45,6 +46,6 @@ class MoodOptionsController < ApplicationController
   end
 
   def mood_option_params
-    params.require(:mood_option).permit(colors: [], labels: [])
+    params.require(:mood_option).permit(colors: [], labels: [], average_color: [])
   end
 end

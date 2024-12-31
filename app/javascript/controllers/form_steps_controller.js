@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const checkboxes = document.querySelectorAll(".color-checkbox");
   const colorDisplay = document.getElementById("average-color");
+  const hiddenField = document.getElementById("hidden-average-color"); // 隠しフィールドを取得
 
   // HEXをRGBに変換
   const hexToRgb = (hex) => {
@@ -41,8 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectedColors.length > 0) {
         const averageColor = calculateAverageColor(selectedColors);
         colorDisplay.style.backgroundColor = averageColor;
+        // 隠しフィールドに中間色を設定
+        if (hiddenField) {
+          hiddenField.value = averageColor;
+        }
       } else {
         colorDisplay.style.backgroundColor = "#ffffff";
+        // 隠しフィールドをクリア
+        if (hiddenField) {
+          hiddenField.value = "";
+        }
       }
     });
   });
