@@ -43,15 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const averageColor = calculateAverageColor(selectedColors);
         colorDisplay.style.backgroundColor = averageColor;
         // 隠しフィールドに中間色を設定
-        if (hiddenField) {
-          hiddenField.value = averageColor;
-        }
+        //if (hiddenField) {
+        //  hiddenField.value = averageColor;
+        //}
       } else {
         colorDisplay.style.backgroundColor = "#ffffff";
         // 隠しフィールドをクリア
-        if (hiddenField) {
-          hiddenField.value = "";
-        }
+        //if (hiddenField) {
+        //  hiddenField.value = "";
+        //}
       }
     });
   });
