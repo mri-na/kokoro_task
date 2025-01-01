@@ -15,4 +15,8 @@ class Task < ApplicationRecord
   def priority_in_japanese
     I18n.t("activerecord.attributes.task.priority.#{priority}")
   end
+  # completed?メソッドを追加
+  def completed?
+    status == '完了'
+  end
 end
