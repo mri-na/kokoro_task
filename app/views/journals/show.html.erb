@@ -13,7 +13,7 @@
   <div style="journal_show_moods">
     <%# if @journal.mood_option %>
       <div>
-        <%= @journal.mood_option.labels.join(", ") %>
+        <%= @journal.mood_option&.labels&.join(", ") || "ラベルはありません" %>
       </div>
       <div>
         <%# ( @journal.mood_option.colors || [] ).each do |color| %> <!-- nilの場合空配列を使う -->
