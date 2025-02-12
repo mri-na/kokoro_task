@@ -38,3 +38,46 @@
   color: #000080; /* デフォルトの文字色をネイビーに設定 */
   padding-top: 40px;
 }
+/* フォーム部分 */
+textarea {
+  resize: none; /* 拡大・縮小を禁止 */
+}
+textarea:focus {
+  outline: none; /* 各フォーム要素の青い枠を無効化 */
+  border-color: transparent; /* 必要に応じて枠線も透明に */
+}
+/* フォーカスされた入力フィールドのカーソル色を変更 */
+input:focus, textarea:focus {
+  caret-color: #FF4500; /* カーソルの色をオレンジに変更 */
+}
+
+/* 共通のスタイル適用 */
+input[type="text"], textarea {
+  border: none; /* 枠線を削除 */
+  background-color: transparent; /* 背景色を透明に */
+  outline: none; /* フォーカス時のアウトラインを削除 */
+  font-size: 16px; /* フォントサイズを統一 */
+  width: 100%; /* 幅をフィールドいっぱいに */
+  padding: 10px 20px; /* 内側の余白を統一 */
+  box-sizing: border-box; /* パディングとボーダーを含めて幅を計算 */
+  line-height: 1.5; /* 行の高さを統一 */
+  caret-color: #FF4500; /* カーソルの色をオレンジに変更 */
+}
+
+/* フォーカス時の共通スタイル */
+input[type="text"]:focus, textarea:focus {
+  outline: none; /* フォーカス時の青い枠を削除 */
+  border-color: transparent; /* 枠線を透明に */
+  caret-color: #FF4500; /* カーソルの色をオレンジに */
+}
+
+/* タイトル用の追加スタイル */
+input[type="text"] {
+  font-weight: 600; /* タイトル用にフォントの太さを調整 */
+}
+
+/* テキストエリア用の追加スタイル */
+textarea {
+  resize: none; /* 拡大・縮小を禁止 */
+  height: 150px; /* 高さを固定 */
+}

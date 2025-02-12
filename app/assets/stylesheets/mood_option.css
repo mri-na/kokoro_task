@@ -1,0 +1,55 @@
+.mood_options {
+  background-color: #FFFFFF;
+  margin: 40px 40px;
+  padding: 24px 24px;
+  border-radius: 10px;
+}
+.mood_option__title,
+.mood_option__sub {
+  display: flex;
+  justify-content: center;
+}
+.mood_option__title {
+  font-size: 24px;
+}
+/* 感情一覧を4列に並べる */
+.emotion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4列均等 */
+  gap: 16px; /* アイテム間のスペース */
+  margin-bottom: 24px; /* 各カテゴリーの間に余白 */
+}
+
+.emotion-item {
+  display: flex;
+  align-items: center;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 8px; /* 感情名とのスペース */
+  border-radius: 4px; /* 角丸（オプション） */
+}
+.mood_option_edit__btn {
+  margin: 24px 40px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn_create {
+  color: #000080;
+  display: block; /* 【変更点】ボタンをブロック要素に変更 */
+  margin: 16px auto; /* 【変更点】上下に20pxのマージンを設定し、中央寄せ */
+  padding: 10px 20px; /* 【変更点】ボタンの内側スペースを調整 */
+  background-color: #f0f0f0; /* 【変更点】背景色を追加 */
+  border: 2px solid #000080; /* 【変更点】ボーダーを追加 */
+  border-radius: 5px; /* 【変更点】角を丸める */
+  text-align: center; /* 【変更点】テキストを中央揃え */
+  font-size: 16px; /* 【変更点】フォントサイズを調整 */
+  cursor: pointer; /* 【変更点】カーソルをポインターに */
+}
+.btn_create:hover {
+  background-color: #d3d3ff; /* 【変更点】ホバー時の背景色 */
+  color: #000080; /* 【変更点】ホバー時の文字色 */
+}

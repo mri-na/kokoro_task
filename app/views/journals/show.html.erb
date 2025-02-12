@@ -10,12 +10,21 @@
   <div class="journal_show__date">
     <%= @journal.entry_date %>
   </div>
-    <% if @journal.mood_option %>
-    <div style="display: flex;">
-      <p><%= @journal.mood_option.labels.join(", ") %></p>
-      <p><% @journal.mood_option.colors.join %></P>
-    </div>
-    <% end %>
+  <div style="journal_show_moods">
+    <%# if @journal.mood_option %>
+      <div>
+        <%= @journal.mood_option&.labels&.join(", ") || "ラベルはありません" %>
+      </div>
+      <div>
+        <%# ( @journal.mood_option.colors || [] ).each do |color| %> <!-- nilの場合空配列を使う -->
+          <div>
+            <!-- <span style="background-color: <%#= color %>; width: 30px; height: 30px; display: inline-block; margin-right: 5px;"></span> -->
+            <%#= color %> <!-- 色コードを表示 -->
+          </div>
+        <%# end %>
+      </div>
+    <%# end %>
+  </div>
 <!-- <p>
   <strong>気分:</strong>
   <% if @mood_option&.average_color %>

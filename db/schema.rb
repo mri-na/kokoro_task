@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_22_050549) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_31_070403) do
   create_table "journals", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "entry_date", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_22_050549) do
     t.json "labels", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "average_color"
     t.index ["optionable_type", "optionable_id"], name: "index_mood_options_on_optionable"
   end
 

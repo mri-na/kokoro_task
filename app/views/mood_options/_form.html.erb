@@ -1,0 +1,65 @@
+<%= form_with(url: polymorphic_path([@target, @mood_option]), local: true) do |f| %><!- ポリモーフィック関連 ->
+  <!-- ステップ1: 感情選択 -->
+  <div id="step1">
+    <div class="mood_options">
+      <div class="mood_option__title">
+        どんな気持ち？
+      </div>
+      <div class="mood_option__sub">
+        最大3つまで選べるよ
+      </div>
+      <div id="color-picker">
+      <% @mood_colors.each do |category, emotions| %>
+        <%= category %>
+      <div class="emotion-grid">
+        <% emotions.each do |emotion, color| %>
+          <div class="emotion-item">
+            <label>
+          <!-- チェックボックスで選択された色情報を送信 -->
+            <%= f.check_box "mood_option[colors][]", { multiple: true, class: "color-checkbox", data: { color: color } }, color, nil %>
+            <span class="color-box" style="background-color: <%= color %>; width: 20px; height: 20px; display: inline-block;"></span>
+            <%= emotion %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    </div>
+    <!-- 中間色を表示 -->
+    <div id="color-display" style="display: flex; align-items: center; justify-content: center;">
+      <div style="margin-bottom: 20px;">今のココロの色は　</div>
+      <div id="average-color" style="margin-bottom: 20px; width: 50px; height: 50px; background-color: #ffffff; border-radius: 10px;"></div>
+      <div style="margin-bottom: 20px;">　です</div>
+      <!-- average_color保留 --><%# f.hidden_field :average_color, id: "hidden-average-color" %> <!-- 隠しフィールド -->
+    </div>
+    <div class="mood_option_edit__btn">
+      <button type="button" id="go-to-step2" class="btn_create">次へ</button>
+    </div>
+  </div>
+
+  <!-- ステップ2: 何についての選択 -->
+  <div id="step2" style="display: none;">
+    <div class="mood_options">
+      <div class="mood_option__title">
+        何について？
+      </div>
+      <div class="mood_option__sub">
+        最大3つまで選べるよ
+      </div>
+      <% @mood_labels.each do |category, labels| %>
+        <%= category %>
+      <div class="emotion-grid">
+        <% labels.each do |label| %>
+          <label>
+            <%= f.check_box "mood_option[labels][]", { multiple: true }, label, nil %> <%= label %>
+          </label>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    <div class="mood_option_edit__btn">
+      <%= f.submit "登録", class: "btn_create"%>
+    </div>
+  </div>
+<% end %>

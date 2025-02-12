@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :mood_options, only: [:new, :create]
   end
+
+  resources :tasks do
+    patch :complete, on: :member, action: :update_status
+  end
 end

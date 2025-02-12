@@ -1,6 +1,8 @@
 <div class="body__container">
   <div class ="journal_index">
     <div class="date-group">
+    <%= link_to 'ジャーナル新規作成', new_journal_path %>
+    <%= link_to '新しいタスクを作成', new_task_path, class: 'btn btn-primary' %>
     <% @grouped_entries.each do |date, entries| %>
         <div class="journal-date">
           <div class="journal-day"><%= date.strftime("%d") %></div> <!-- 日 -->
@@ -13,6 +15,18 @@
               <% entries[:tasks].each do |task| %>
                 <div class="task-content">
                   <%= link_to task.title, task_path(task), class: "task-link" %>
+                  <div class="task_status">
+                    <% if task.completed? %>
+                    <span style="color: green;">完了</span>
+                      <%= button_to '未完了に戻す', complete_task_path(task, status: '未着手'), method: :patch, class: 'btn btn-warning' %>
+                    <% else %>
+                    <span style="color: red;">未完了</span>
+                      <%= button_to '完了にする', complete_task_path(task, status: '完了'), method: :patch, class: 'btn btn-success' %>
+                    <% end %>
+                  </div>
+                  <%# mood_option = task.mood_option %> <!-- 関連付けされたMoodOptionを取得 -->
+                  <%#= @mood_option.inspect %>
+                  <!-- <div style="width: 20px; height: 20px; border-radius: 50%; background-color: <%#= mood_option&.average_color || '#ffffff' %>;"></div> -->
                 </div>
               <% end %>
             </ul>
@@ -25,6 +39,8 @@
               <% entries[:journals].each do |journal| %>
                 <div class="journal-content">
                   <%= link_to journal.content, journal_path(journal), class: "journal-link" %>
+                  <%# mood_option = journal.mood_option %> <!-- 関連付けされたMoodOptionを取得 -->
+                  <!-- <div style="width: 20px; height: 20px; border-radius: 50%; background-color: <%#= mood_option&.average_color || '#ffffff' %>;"></div> -->
                 </div>
               <% end %>
             </ul>

@@ -26,15 +26,27 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: 'タスクを更新しました。'
+      redirect_to new_task_mood_option_path(@task), notice: 'タスクを更新しました。'
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
+  def update_status
+    @task = Task.find(params[:id])
+    new_status = params[:status]
+    
+    # 新しい状態でタスクを更新
+    if @task.update(status: new_status)
+      redirect_to dashboard_path, notice: "タスクの状態が更新されました"
+    else
+      redirect_to dashboard_path, alert: "タスクの状態更新に失敗しました"
+    end
+  end
+  
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: 'タスクを削除しました。'
+    redirect_to root_path, notice: 'タスクを削除しました。'
   end
 
   private

@@ -2,22 +2,23 @@ class DashboardController < ApplicationController
   before_action :set_journal, only: [:destroy, :edit, :update, :show]
   def index
     @grouped_entries = {}
+    @mood_options = MoodOption.all
 
     # JournalとTaskをまとめる
     current_user.journals.each do |journal|
-      date = journal.entry_date
+      date = journal.entry_date.to_date
       @grouped_entries[date] ||= { journals: [], tasks: [] }
       @grouped_entries[date][:journals] << journal
     end
 
     current_user.tasks.each do |task|
-      date = task.due_date
+      date = task.due_date.to_date
       @grouped_entries[date] ||= { journals: [], tasks: [] }
       @grouped_entries[date][:tasks] << task
     end
 
     # 日付順に並び替え
-      @grouped_entries = @grouped_entries.sort.to_h
+      @grouped_entries = @grouped_entries.sort.reverse.to_h
 
     # 記念日を取得
     today = Date.today

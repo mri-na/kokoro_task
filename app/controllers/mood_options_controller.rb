@@ -23,7 +23,6 @@ class MoodOptionsController < ApplicationController
       colors: params.dig(:mood_option, :colors), # 選択された色を取得
       labels: params.dig(:mood_option, :labels) # 選択されたラベルを取得
     )
-  
     if @mood_option.save
       redirect_to @target, notice: "感情の選択が保存されました。"
     else
@@ -43,7 +42,7 @@ class MoodOptionsController < ApplicationController
       redirect_to tasks_path and return # 適切なリダイレクト先に変更
     end
   end
-
+  # mood_option_paramsが正常に送れないため、params.digで行う
   def mood_option_params
     params.require(:mood_option).permit(colors: [], labels: [])
   end

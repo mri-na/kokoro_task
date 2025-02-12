@@ -12,7 +12,7 @@ class JournalsController < ApplicationController
     @journal = current_user.journals.build(journal_params)
     if @journal.save
       # ジャーナル作成後、ポリモーフィック関連で MoodOption の new アクションにリダイレクト
-      redirect_to new_journal_mood_option_path(@journal)
+      redirect_to new_journal_mood_option_path(@journal), notice: 'ジャーナルを作成しました。'
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,12 +27,11 @@ class JournalsController < ApplicationController
   end
 
   def edit
-    @journal = Journal.find(params[:id])
   end
 
   def update
     if @journal.update(journal_params)
-      redirect_to @journal, notice: 'ジャーナルを更新しました。'
+      redirect_to new_journal_mood_option_path(@journal), notice: 'ジャーナルを更新しました。'
     else
       render :edit, alert: '更新に失敗しました。'
     end

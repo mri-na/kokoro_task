@@ -1,18 +1,21 @@
-/* ジャーナル詳細画面 */
-.journal_show {
+/* タスク詳細画面 */
+.task_show {
   background-color: #FFFFFF;
   margin: 40px 40px;
   padding: 24px 24px;
   border-radius: 10px;
 }
-.journal_show__content {
+.task_show__title {
   font-size: 16px;
 }
-.journal_show__date {
-  margin-top: 24px;
-  font-size: 8px;
+.task_show__description {
+  margin-top: 16px;
+  font-size: 16px;
 }
-.journal_show__btn {
+.task_show__due_date {
+
+}
+.task_show__btn {
   margin: 40px 40px 0 40px;
   display: flex;
   justify-content: space-between;
@@ -22,22 +25,47 @@
   text-decoration: none;
   color: inherit;
 }
-/* ジャーナル編集画面 */
-.journal_edit {
+/* タスク編集画面 */
+.task_edit {
   margin: 8px 40px;
 }
+.edit_form__title,
+.edit_form__description  {
+  border: none;
+  box-shadow: none;
+  background-color: transparent; /* 背景もリセットしたい場合 */
+  font-size: 16px;
+  color: #000080; /* デフォルトの文字色をネイビーに設定 */
+  margin: 8px;
+  width: 100%; /* テキストエリアの幅を100%に */
+  padding: 8px; /* 内側のスペースを確保 */
+  box-sizing: border-box; /* パディングを含む幅調整 */
+}
+.edit_form__limits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 子要素を中央揃え */
+  background-color: #FFFFFF;
+  margin: 8px 40px;
+  padding: 24px;
+  border-radius: 10px;
+}
+.form_control__title,
+.form_control__description,
 .form_control__date,
-.form_control__content {
+.form_control__priority,
+.form_control__status {
   border: none;
   box-shadow: none;
   background-color: transparent; /* 背景もリセットしたい場合 */
   font-size: 16px;
   color: #000080; /* デフォルトの文字色をネイビーに設定 */
 }
-.form_control__content {
+.form_control__title,
+.form_control__description {
   margin: 16px 16px;
   width: 100%; /* テキストエリアの幅を100%に */
-  padding: 10px 40px; /* 内側のスペースを確保 */
+  padding: 16px; /* 内側のスペースを確保 */
   box-sizing: border-box; /* パディングを含む幅調整 */
 }
 .form_control__content::placeholder {
@@ -45,31 +73,23 @@
   overflow: hidden;    /* はみ出した部分を隠す */
   text-overflow: ellipsis; /* 省略記号（...）を表示 */
 }
-.journal_edit__form {
+.task_edit__form {
   display: flex; /* 子要素をフレックスボックスで管理 */
   flex-direction: column; /* 子要素を縦に並べる */
   align-items: center; /* 子要素を中央揃え */
-  gap: 20px; /* 子要素間の間隔を調整 */
+  gap: 16px; /* 子要素間の間隔を調整 */
 }
-.edit_form__date,
-.edit_form__content {
+.edit_form__title,
+.edit_form__description,
+.edit_form__due_date,
+.edit_form__priority,
+.edit_form__status {
   text-align: left; /* 左揃え */
   background-color: #FFFFFF;
   border-radius: 10px;
 }
-.edit_form__date {
-  padding: 4px 16px;
-}
-.edit_form__content {
-  padding-right: 32px;
-  width: 100%;
-  display: flex; /* 子要素を横並びに配置 */
-  justify-content: space-between; /* 両端に配置 */
-  position: relative; /* 子要素の絶対配置を有効にする */
-  margin-bottom: 8px; /* 他の要素との間隔を調整 */
-}
-.journal_edit__btn {
-  margin: 40px 40px 0 40px;
+.task_edit__btn {
+  margin: 24px 40px 40px 40px;
   display: flex;
   justify-content: space-between;
 }

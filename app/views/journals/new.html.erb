@@ -1,16 +1,5 @@
-<h1>新規Journal作成</h1>
-<%= form_with(model: @journal, local: true) do |form| %>
-<div>
-<%= form.label :entry_date, '日付' %>
-<%= form.date_field :entry_date %>
+<!-- 新しいジャーナルを作成 -->
+<div class="journal_edit__btn">
+  <%= link_to '＜ 戻る', root_path, class: 'btn' %>
 </div>
-<div>
-<%= form.label :content, '内容' %>
-<%= form.text_area :content %>
-</div>
-<div>
-<%= form.submit '作成' %>
-</div>
-<% end %>
-
-<%= link_to '戻る', journals_path %>
+<%= render 'form', journal: @journal %>
