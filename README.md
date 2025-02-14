@@ -13,7 +13,22 @@
  - メールアドレス : kokoro@sample.com
  - パスワード : kokoro1234
 
+  - メールアドレス : test@sample.com
+  - パスワード : test1234
+
 # 利用方法
+### 1, ログインページ
+  メールアドレスとパスワードを入力して、自身のアカウントにログインする。
+  初めて利用する場合は、新規登録ボタンからアカウント登録を行う。
+  [![Image from Gyazo](https://i.gyazo.com/4bd6bf5f4a413ee58fbb460f4a5820a8.png)](https://gyazo.com/4bd6bf5f4a413ee58fbb460f4a5820a8)
+### 2, ジャーナリング投稿
+  [![Image from Gyazo](https://i.gyazo.com/be83acdb42681fe1a47a2b22cb13ea0d.png)](https://gyazo.com/be83acdb42681fe1a47a2b22cb13ea0d)
+
+  [![Image from Gyazo](https://i.gyazo.com/935062be0f73472125a5dd03b9eac3a1.png)](https://gyazo.com/935062be0f73472125a5dd03b9eac3a1)
+
+  [![Image from Gyazo](https://i.gyazo.com/533d7de702a4ab3908475ada910262b6.png)](https://gyazo.com/533d7de702a4ab3908475ada910262b6)
+
+  [![Image from Gyazo](https://i.gyazo.com/22bd312b5a92abe28debacc6bd0cadb9.png)](https://gyazo.com/22bd312b5a92abe28debacc6bd0cadb9)
 
 # アプリケーションを作成した背景
     社会人として働きながら資格の勉強をしていたとき、タスク管理アプリとジャーナリングアプリを併用していました。しかし、それぞれ別のアプリを使うのは手間がかかり、学習の進捗や日々の気持ちを一元管理できたらもっと便利なのにと思うことがありました。

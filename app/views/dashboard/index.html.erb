@@ -1,8 +1,11 @@
 <div class="body__container">
   <div class ="journal_index">
     <div class="date-group">
-    <%= link_to 'ジャーナル新規作成', new_journal_path %>
-    <%= link_to '新しいタスクを作成', new_task_path, class: 'btn btn-primary' %>
+      <div class='dashboard-btn'>
+        <%= link_to 'ジャーナル新規作成', new_journal_path, class: 'btn-primary' %>
+        <%= link_to 'タスク新規作成', new_task_path, class: 'btn-primary' %>
+        <%= link_to 'アカウント情報編集', edit_user_registration_path, class: 'btn-primary' %>
+      </div>
     <% @grouped_entries.each do |date, entries| %>
         <div class="journal-date">
           <div class="journal-day"><%= date.strftime("%d") %></div> <!-- 日 -->
@@ -14,15 +17,23 @@
             <ul>
               <% entries[:tasks].each do |task| %>
                 <div class="task-content">
-                  <%= link_to task.title, task_path(task), class: "task-link" %>
-                  <div class="task_status">
+                  <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; border-radius: 8px;">
+                    <div style="display: flex; align-items: center;">
+                      <%= link_to "【 #{task.title} 】", task_path(task), class: "task-link", style: "flex-grow: 1; text-align: center; font-weight: bold; font-size: 1.1em;" %>
+                      <% if task.completed? %>
+                        <span style="background-color: #d4edda; color: #155724; padding: 2px 10px; border-radius: 12px; font-weight: bold; margin-left: 10px;">完了🎉</span>
+                      <% else %>
+                        <span style="background-color: #f8d7da; color: #721c24; padding: 2px 10px; border-radius: 12px; font-weight: bold; margin-left: 10px;">未完了</span>
+                      <% end %>
+                    </div>
                     <% if task.completed? %>
-                    <span style="color: green;">完了</span>
-                      <%= button_to '未完了に戻す', complete_task_path(task, status: '未着手'), method: :patch, class: 'btn btn-warning' %>
+                      <%= button_to '未完了に戻す', complete_task_path(task, status: '未着手'), method: :patch, class: 'btn btn-outline-danger', style: "border-radius: 20px; padding: 5px 15px; font-weight: bold;" %>
                     <% else %>
-                    <span style="color: red;">未完了</span>
-                      <%= button_to '完了にする', complete_task_path(task, status: '完了'), method: :patch, class: 'btn btn-success' %>
+                      <%= button_to '完了にする', complete_task_path(task, status: '完了'), method: :patch, class: 'btn btn-outline-success', style: "border-radius: 20px; padding: 5px 15px; font-weight: bold;" %>
                     <% end %>
+                  </div>
+                  <div class="task-description">
+                    <%= link_to task.description, task_path(task), class: "task-link" %>
                   </div>
                   <%# mood_option = task.mood_option %> <!-- 関連付けされたMoodOptionを取得 -->
                   <%#= @mood_option.inspect %>

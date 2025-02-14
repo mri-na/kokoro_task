@@ -21,13 +21,13 @@
   margin-bottom: 16px;
 }
 /* メールアドレス & パスワードのラベルを太字にする */
-.account-page__sign-in-form .field-label {
+.account-page__form .field-label {
   font-weight: bold; /* 文字を太く */
   font-size: 16px; /* フォントサイズを統一 */
   margin-bottom: 5px; /* ラベルと入力欄の間隔を調整 */
 }
 /* 各入力欄の間隔を広げる */
-.account-page__sign-in-form .field {
+.account-page__form .field {
   margin-bottom: 20px; /* 入力欄ごとに間隔を確保 */
 }
 /* 入力フィールドのデザイン */
@@ -65,4 +65,9 @@
 .account-page-btn:active {
   transform: translateY(0px); /* クリック時に元の位置に戻る */
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+.with-border {
+  display: block !important; /* 必ず表示する */
+  visibility: visible !important;
+  opacity: 1 !important;
 }

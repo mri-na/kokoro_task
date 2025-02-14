@@ -1,3 +1,6 @@
 <!-- 新しいタスクを作成 -->
+<div class="journal_edit__btn">
+  <%= link_to '＜ 戻る', root_path, class: 'btn' %>
+</div>
 <%= render 'form', task: @task %>
 <%= link_to '一覧に戻る', tasks_path, class: 'btn btn-secondary' %>
