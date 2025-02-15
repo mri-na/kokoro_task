@@ -12,8 +12,12 @@
     <!-- importmapを最初に読み込む -->
     <%= javascript_importmap_tags %> <!-- これを追加 -->
     <!-- モジュールスクリプトを読み込む -->
+    <%= javascript_include_tag 'form_steps', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'controllers/form_steps_controller', 'data-turbolinks-track': 'reload' %>
+    <!-- 
     <script src="/assets/form_steps.js"></script>
     <script src="/assets/controllers/form_steps_controller.js"></script>
+    -->
   </head>
 
   <body>
