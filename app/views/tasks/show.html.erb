@@ -13,16 +13,18 @@
   <div class="task_show__due_date">
     <%= @task.due_date.strftime('%Y-%m-%d %H:%M') %> まで
   </div>
+  <!-- 
   <div class="task_show__priority">
     <%= @task.priority_in_japanese %>
   </div>
   <div class="task_show__status">
     <%= @task.status_in_japanese %>
   </div>
+  -->
   <div style="task_show_moods">
     <% if @task.mood_option %>
       <%= @task.mood_option.labels.join(", ") %>
-      <%= @task.mood_option.colors.join %>
+      <%#= @task.mood_option.colors.join %>
     <% end %>
   </div>
 </div>

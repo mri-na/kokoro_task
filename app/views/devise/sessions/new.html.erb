@@ -1,33 +1,39 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>Log in</h2>
-      <h5>登録しているユーザーでログイン</h5>
-      <%= render "devise/shared/links"%>
+<div class='account-page'>
+  <div class='account-page__inner'>
+    <div class='account-page__sign-up'>
+      <h3>初めてご利用の方</h3>
+      <%= link_to "新規登録", new_registration_path(resource_name), class: 'account-page-btn' %>
     </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :メールアドレス%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email, autofocus: true%>
-          </div>
+    <div class='account-page__sign-in'>
+        <h3>既にアカウントをお持ちの方</h3>
+      <div class='account-page__form'>
+        <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
           <div class='field'>
             <div class='field-label'>
-              <%= f.label :パスワード%>
-              <i>(英数字6文字以上)</i>
+              <%= f.label :メールアドレス%>
             </div>
             <div class='field-input'>
-              <%= f.password_field :password, autocomplete: "off"%>
+              <%= f.email_field :email, autofocus: true%>
+            </div>
+            <div class='field'>
+              <div class='field-label'>
+                <%= f.label :パスワード%>
+                <i>(英数字6文字以上)</i>
+              </div>
+              <div class='field-input'>
+                <%= f.password_field :password, autocomplete: "off"%>
+              </div>
+            </div>
+            <div class='actions'>
+              <%= f.submit "ログイン", class: 'account-page-btn'%>
             </div>
           </div>
-          <div class='actions'>
-            <%= f.submit "Log in", class: 'btn'%>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class='account-page__resign-up'>
+      <h3>パスワードを忘れた方</h3>
+      <%= link_to "パスワード再設定", new_password_path(resource_name), class: 'account-page-btn' %>
     </div>
   </div>
 </div>

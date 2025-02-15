@@ -52,7 +52,7 @@ input:focus, textarea:focus {
 }
 
 /* 共通のスタイル適用 */
-input[type="text"], textarea {
+input[type="text"]:not(.with-border), textarea {
   border: none; /* 枠線を削除 */
   background-color: transparent; /* 背景色を透明に */
   outline: none; /* フォーカス時のアウトラインを削除 */
@@ -63,7 +63,11 @@ input[type="text"], textarea {
   line-height: 1.5; /* 行の高さを統一 */
   caret-color: #FF4500; /* カーソルの色をオレンジに変更 */
 }
-
+input[type="text"].with-border {
+  border: 1px solid #ccc; /* 枠線あり */
+  border-radius: 5px;
+  background-color: #fff;
+}
 /* フォーカス時の共通スタイル */
 input[type="text"]:focus, textarea:focus {
   outline: none; /* フォーカス時の青い枠を削除 */

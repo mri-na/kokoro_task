@@ -38,6 +38,9 @@ ul {
   text-decoration: none;
   color: inherit;
 }
+.task-description {
+  padding: 0 8px;
+}
 .journal-content {
   background-color: #FFFFFF;
   margin: 8px 0;
@@ -47,4 +50,18 @@ ul {
 .journal-link {
   text-decoration: none;
   color: inherit;
+}
+.btn-primary {
+  margin: 0 8px 0 8px;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid #000080;
+  border-radius: 100vh;
+  padding: 10px 20px;
+}
+.dashboard-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
 }

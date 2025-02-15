@@ -1,114 +1,73 @@
 .account-page .account-page__inner {
-  width: 980px;
-  margin: 60px auto;
-  padding: 60px;
+  width: 600px;
+  margin-top: 55px;
+  padding: 40px 60px 50px;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 5px;
 }
-.account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
-  float: left;
-  width: 50%;
-}
-.account-page .account-page__inner:after {
-  clear: both;
-  content: "";
-  display: block;
-}
-.account-page .account-page__header h2 {
-  margin-bottom: 10px;
-  letter-spacing: 3px;
-  font-size: 40px;
-  font-weight: 200;
-}
-.account-page .account-page__header h2:after {
-  content: "";
-  display: block;
-  width: 60px;
-  margin-top: 5px;
-  border-bottom: 1px solid #38aef0;
-}
-.account-page .account-page__header h5 {
-  margin-bottom: 20px;
-  font-size: 14px;
-  font-weight: 200;
-}
-.account-page .account-page__header .btn {
-  margin-top: 20px;
-  color: #fff;
-  background-color: #ccc;
-  font-size: 14px;
-}
-.account-page .field {
-  margin-bottom: 10px;
-}
-.account-page .field .field-label {
-  padding: 10px 0;
-  letter-spacing: 1px;
-  font-size: 14px;
-  font-weight: 200;
-}
-.account-page .field .field-label i {
-  font-size: 11px;
-}
-.account-page .field .field-input input {
-  width: 100%;
-  padding: 10px;
-  letter-spacing: 1px;
-}
-.account-page .btn {
-  display: inline-block;
-  height: 50px;
-  padding: 0 30px;
-  line-height: 50px;
-  letter-spacing: 1px;
+.account-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  border: none;
-  border-radius: 2px;
 }
-.account-page input[type=submit] {
-  float: left;
-  margin-top: 20px;
-  color: #fff;
-  background-color: #38aef0;
+.account-page__sign-up {
+ margin-bottom: 40px;
 }
-.account-page .field-label .field_with_errors {
+.account-page__sign-in {
+  margin-bottom: 40px;
+}
+.account-page__resign-up {
+  margin-bottom: 16px;
+}
+/* メールアドレス & パスワードのラベルを太字にする */
+.account-page__form .field-label {
+  font-weight: bold; /* 文字を太く */
+  font-size: 16px; /* フォントサイズを統一 */
+  margin-bottom: 5px; /* ラベルと入力欄の間隔を調整 */
+}
+/* 各入力欄の間隔を広げる */
+.account-page__form .field {
+  margin-bottom: 20px; /* 入力欄ごとに間隔を確保 */
+}
+/* 入力フィールドのデザイン */
+.field-input input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc; /* 薄いグレーの枠線 */
+  border-radius: 5px; /* 角を少し丸く */
+  font-size: 16px;
+  outline: none; /* フォーカス時の青枠を消す */
+}
+.actions input {
+  font-size: 16px;
+}
+.account-page-btn {
   display: inline-block;
-  color: #d65f4c;
-  font-weight: 400;
+  background-color: #e67e22; /* コーラルオレンジ */
+  color: #fff; /* 文字色は白 */
+  font-weight: bold;
+  text-align: center;
+  padding: 12px 24px;
+  border-radius: 8px; /* 角を丸くする */
+  text-decoration: none; /* 下線を消す */
+  transition: all 0.3s ease-in-out; /* なめらかなアニメーション */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+  border: 2px solid #000080;
 }
-.account-page .field-input .field_with_errors {
-  position: relative;
+/* ホバー時のスタイル */
+.account-page-btn:hover {
+  background-color: #FF7F50; /* トマトレッド */
+  transform: translateY(-2px); /* 浮き上がるようなアニメーション */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
-.account-page .field-input .field_with_errors:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 5px;
-  background-color: #d65f4c;
+/* アクティブ時（クリック時）のスタイル */
+.account-page-btn:active {
+  transform: translateY(0px); /* クリック時に元の位置に戻る */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
-
-#error_explanation {
-  margin: 20px 0;
-  padding: 20px 30px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-}
-#error_explanation h2 {
-  margin-bottom: 10px;
-  color: #d65f4c;
-  font-size: 14px;
-}
-#error_explanation ul {
-  margin: 0;
-  padding-left: 17px;
-  list-style: square;
-}
-#error_explanation li {
-  margin: 0;
-  padding: 0;
-  font-size: 13px;
+.with-border {
+  display: block !important; /* 必ず表示する */
+  visibility: visible !important;
+  opacity: 1 !important;
 }
