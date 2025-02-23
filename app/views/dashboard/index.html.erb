@@ -27,9 +27,15 @@
                       <% end %>
                     </div>
                     <% if task.completed? %>
-                      <%= button_to '未完了に戻す', complete_task_path(task, status: '未着手'), method: :patch, class: 'btn btn-outline-danger', style: "border-radius: 20px; padding: 5px 15px; font-weight: bold;" %>
+                      <%= form_with url: complete_task_path(task, status: '未着手'), method: :patch, remote: true, class: 'form-inline' do |form| %>
+                        <%= form.submit '未完了に戻す', class: "btn btn-primary",
+                            style: "font-size: 13px; border-radius: 20px; padding: 5px 15px; font-weight: bold; background-color: #f0f0f0;" %>
+                        <% end %>
                     <% else %>
-                      <%= button_to '完了にする', complete_task_path(task, status: '完了'), method: :patch, class: 'btn btn-outline-success', style: "border-radius: 20px; padding: 5px 15px; font-weight: bold;" %>
+                      <%= form_with url: complete_task_path(task, status: '完了'), method: :patch, remote: true, class: 'form-inline' do |form| %>
+                        <%= form.submit '完了にする', class: "btn btn-primary",
+                            style: "font-size: 13px; border-radius: 20px; padding: 5px 22px; font-weight: bold; background-color: #f0f0f0;" %>
+                        <% end %>
                     <% end %>
                   </div>
                   <div class="task-description">

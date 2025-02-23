@@ -38,9 +38,15 @@ class TasksController < ApplicationController
     
     # 新しい状態でタスクを更新
     if @task.update(status: new_status)
-      redirect_to dashboard_path, notice: "タスクの状態が更新されました"
+      respond_to do |format|
+        format.json { render json: { id: @task.id, status: @task.status, message: "タスクの状態が更新されました" }, status: :ok }
+        format.html { redirect_to dashboard_index_path, notice: "タスクの状態が更新されました" }
+      end
     else
-      redirect_to dashboard_path, alert: "タスクの状態更新に失敗しました"
+      respond_to do |format|
+        format.json { render json: { error: "タスクの状態更新に失敗しました" }, status: :unprocessable_entity }
+        format.html { redirect_to dashboard_index_path, alert: "タスクの状態更新に失敗しました" }
+      end
     end
   end
   

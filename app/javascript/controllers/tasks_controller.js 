@@ -1,0 +1,28 @@
+import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+  static targets = ["button"]
+
+  updateStatus(event) {
+    event.preventDefault();
+
+    const taskId = event.currentTarget.dataset.taskId;
+    const status = event.currentTarget.dataset.status;
+
+    fetch(`/tasks/${taskId}/complete`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({ status: status })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        this.element.innerHTML = data.new_button_html;
+      }
+    })
+    .catch(error => console.error("Error:", error));
+  }
+}
